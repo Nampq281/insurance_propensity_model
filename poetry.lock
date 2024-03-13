@@ -2586,6 +2586,23 @@ pandas = ["pandas (>=0.24.0)"]
 scikit-learn = ["scikit-learn (!=0.22.0)"]
 
 [[package]]
+name = "mapie"
+version = "0.8.3"
+description = "A scikit-learn-compatible module for estimating prediction intervals."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "MAPIE-0.8.3-py3-none-any.whl", hash = "sha256:02b9555c81257caf7e14feef33b86d0af8d79554d58e907c2927c50f662ce27e"},
+    {file = "MAPIE-0.8.3.tar.gz", hash = "sha256:bded6ac327fd83e908f7aafa23c11c48e31bee2c0355ff931dc05c1826f66f8e"},
+]
+
+[package.dependencies]
+numpy = ">=1.21"
+packaging = "*"
+scikit-learn = "*"
+scipy = "*"
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
@@ -5272,4 +5289,4 @@ test = ["zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1e8c69731c3a6ba0606d7538838e5c0c181d5215b799e21fc9a6e42e77b3c38b"
+content-hash = "56651d34c6fca15a70812cd247d8a664d34143d6d7c5d18b4477e1898a001eac"

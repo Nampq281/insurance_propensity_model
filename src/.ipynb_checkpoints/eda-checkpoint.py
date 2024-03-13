@@ -3,25 +3,21 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotation=True):
-    '''
-    plot categorical data, paird with event rate in each category
-    '''
+def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotation=False):
     #prepare data
-    sns.set_color_codes('pastel')
     temp_count = df[feature].value_counts()
-    df_count = pd.DataFrame({feature:temp_count.index, 'No customers':temp_count.values})
+    df_count = pd.DataFrame({feature:temp_count.index, 'No contracts':temp_count.values})
     df_perc = df[[feature, label]].groupby([feature], as_index=False).mean()
     df_perc.sort_values(by=label, ascending=False, inplace=True)
     
     #initialize subplot
     #horizontal layout
     if horizontal_layout:
-        fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(12,6))
+        fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(8,4))
     else:
-        fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, figsize=(12,14))
-    
-    s1 = sns.barplot(ax=ax1, x=feature, y='No customers', order=df_perc[feature], data=df_count)
+        fig, (ax1, ax2) = plt.subplots(nrows=2, ncols=1, figsize=(7,10))
+    sns.set_color_codes('pastel')
+    s1 = sns.barplot(ax=ax1, x=feature, y='No contracts', order=df_perc[feature], data=df_count)
     s2 = sns.barplot(ax=ax2, x=feature, y=label, order=df_perc[feature], data=df_perc)
     
     #tickmark flip
@@ -30,10 +26,13 @@ def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotatio
         s2.set_xticklabels(s2.get_xticklabels(), rotation=90)
     
     #set up chart
-    plt.ylabel('Percent of target with 1', fontsize=10)
+    plt.ylabel('Event rate', fontsize=10)
     plt.tick_params(axis='both', which='major', labelsize=10)
+    ax2.yaxis.set_label_position("right")
+    ax2.yaxis.tick_right()
     plt.show()
 
+    
 def plot_distribution(df, feature):
     '''
     plot continuous data hist
@@ -75,7 +74,8 @@ import seaborn as sns
 
 def plot_corr_matrix(df):
     corr = df.corr()
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(10,6))
     sns.heatmap(corr, vmax=0.8, center=0,
                 square=True, linewidths=2, cmap='Blues')
+    plt.tick_params(axis='both', labelsize=7)
     plt.show()
