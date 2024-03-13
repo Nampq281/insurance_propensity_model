@@ -1,4 +1,4 @@
-# Insurance product propensity model 
+# Insurance product propensity model
 
 **Note**: _This template uses poetry to manage project dependencies
 
@@ -7,9 +7,12 @@ Install poetry:
 ```bash
 pip install poetry
 ```
-All main dependencies for this project are specified in pyproject.toml . To install all dependencies, run:
+All main dependencies for this project are specified in pyproject.toml. 
+To install all dependencies: 
+* Locate to folder containing pyproject.toml.
+* Run following command in a separate venv
 ```bash
-pip install poetry
+poetry install
 ```
 
 ## Tools used in this project
@@ -31,7 +34,7 @@ pip install poetry
 ├── README.md                       # describe your project
 ├── src                             # store source code
 │   ├── __init__.py                 # make src a Python module 
-│   ├── eda.py                      # process data before training model
-│   └── feat_select.py              # train model
+│   ├── eda.py                      # explotory data analysis and vizualisation
+│   └── feat_select.py              # feature selection
 ```
 
