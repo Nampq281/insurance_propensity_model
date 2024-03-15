@@ -17,16 +17,13 @@ poetry install
 
 ## Tools used in this project
 * [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management 
-* [DVC](https://dvc.org/): Data version control - [article](https://mathdatasimplified.com/introduction-to-dvc-data-version-control-tool-for-machine-learning-projects-2/)
   
 ## Project Structure
 ```bash
 .
 ├── data            
 │   ├── train_data                  # data after training the model
-│   ├── test_data                   # data after processing
-│   ├── raw                         # raw data
-│   └── raw.dvc                     # DVC file of data/raw
+│   └── test_data                   # data after processing
 ├── .gitignore                      # ignore files that cannot commit to Git
 ├── models                          # store models
 ├── notebooks.ipynb                 # notebooks
@@ -36,5 +33,6 @@ poetry install
 │   ├── __init__.py                 # make src a Python module 
 │   ├── eda.py                      # explotory data analysis and vizualisation
 │   └── feat_select.py              # feature selection
+├── catboost_info                   # experiment logging
 ```
 

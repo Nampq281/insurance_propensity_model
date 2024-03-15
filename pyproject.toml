@@ -21,6 +21,7 @@ xgboost = "^2.0.3"
 catboost = "^1.2.3"
 jupyter = "^1.0.0"
 mapie = "0.8.3"
+optuna = "^3.5.0"
 
 
 [build-system]
