@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotation=False):
+def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotation=False, title=None):
     #prepare data
     temp_count = df[feature].value_counts()
     df_count = pd.DataFrame({feature:temp_count.index, 'No contracts':temp_count.values})
@@ -30,6 +30,7 @@ def plot_stats(feature:str, label:str, df, horizontal_layout=True, label_rotatio
     plt.tick_params(axis='both', which='major', labelsize=10)
     ax2.yaxis.set_label_position("right")
     ax2.yaxis.tick_right()
+    plt.title(title)
     plt.show()
 
     
@@ -43,7 +44,7 @@ def plot_distribution(df, feature):
     plt.show()
 
 
-def plot_distribution_target(df, feature_list, label, nrows=3):
+def plot_distribution_target(df, feature_list, label, nrows=3, bw_method=0.01):
     '''
     plot continuous data by binning with event rate in each bin
     maximum 6 figures at once
@@ -60,8 +61,8 @@ def plot_distribution_target(df, feature_list, label, nrows=3):
     for feature in feature_list:
         i += 1
         plt.subplot(nrows,2,i)
-        sns.kdeplot(t1[feature], bw_method=0.01, label='TARGET [1]')
-        sns.kdeplot(t0[feature], bw_method=0.01, label='TARGET [0]')
+        sns.kdeplot(t1[feature], bw_method=bw_method, label='TARGET [1]')
+        sns.kdeplot(t0[feature], bw_method=bw_method, label='TARGET [0]')
         plt.ylabel('Density plot', fontsize=12)
         plt.xlabel(feature, fontsize=12)
         locs, labels = plt.xticks()
