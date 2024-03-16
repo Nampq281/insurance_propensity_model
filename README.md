@@ -24,7 +24,8 @@ poetry install
 ```bash
 .
 ├── .gitignore                      # ignore files that cannot commit to Git
-├── data            
+├── data 
+|   ├── submission                  # final submission
 │   ├── train_data                  # data after training the model
 │   └── test_data                   # data after processing
 ├── models                          # store models
