@@ -14,6 +14,10 @@ To install all dependencies:
 ```bash
 poetry install
 ```
+Run main working file
+```bash 
+project_notebook.iypnb  
+```
 
 ## Tools used in this project
 * [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management
